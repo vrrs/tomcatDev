@@ -1,4 +1,4 @@
-tomcatDev
+Tomcat Dev
 =========
 
-Clone of the codebase of tomcat 5. I use it as educational purpose. 
+Im writting successive versions of a java web container based on Tomcat 5. 
