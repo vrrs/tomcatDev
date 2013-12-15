@@ -22,8 +22,7 @@ public class HttpServer {
 		ServerSocket serverSocket = null;
 		int port = 8080;
 		try {
-			serverSocket = new ServerSocket(port, 1,
-					InetAddress.getByName("127.0.0.1"));
+			serverSocket = new ServerSocket(port, 1,InetAddress.getByName("127.0.0.1")); 
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(1);
@@ -34,7 +33,12 @@ public class HttpServer {
 			InputStream input = null;
 			OutputStream output = null;
 			try {
-				socket = serverSocket.accept();
+				//System.out.println("k2");
+				
+				/*
+				 * 'block until' new connection has been made. runs in an infinite loop
+				*/
+				socket = serverSocket.accept(); 
 				input = socket.getInputStream();
 				output = socket.getOutputStream();
 				// create Request object and parse
