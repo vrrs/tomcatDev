@@ -55,9 +55,11 @@ public class HttpServer {
 				if (request.getUri().startsWith("/servlet/")) {
 					ServletProcessor processor = new ServletProcessor();
 					processor.process(request, response);
-				} else {
-					StaticResourceProcessor processor = new StaticResourceProcessor();
-					processor.process(request, response);
+				}else {
+					if(!(shutdown = request.getUri().equals(SHUTDOWN_COMMAND))){
+						StaticResourceProcessor processor = new StaticResourceProcessor();
+						processor.process(request, response);
+					}
 				}
 				// Close the socket
 				socket.close();
