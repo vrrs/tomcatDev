@@ -14,6 +14,11 @@ import javax.servlet.ServletInputStream;
 public class HttpRequest {
 	private InputStream input;
 	private String uri;
+	
+	private String header_firstLine; //it contains the method, protocol,version and uri
+	private String[] headers; 
+	private String body;
+	
 	private final int BUFFER_SIZE=2048;
 
 	public HttpRequest(InputStream input) {
@@ -24,14 +29,10 @@ public class HttpRequest {
 		return uri;
 	}
 
-	private String parseUri(String requestString) {
-		int index1, index2 = 0;
-		index1 = requestString.indexOf(' ');
-		if (index1 != -1) {
-			index2 = requestString.indexOf(' ', index1 + 1);
-		}
-		if (index2 > index1)
-			return requestString.substring(index1 + 1, index2);
+	private String parseUri(String firstLine) {
+		String parts[]=firstLine.split(" ");
+		if(parts.length>1)
+			return parts[1];
 		return null;
 	}
 
@@ -47,11 +48,22 @@ public class HttpRequest {
 			i = -1;
 		}
 		for (int j = 0; j < i; j++) {
-
 			request.append((char) buffer[j]);
-			System.out.print(request.toString());
-			uri = parseUri(request.toString());
 		}
+		
+		String requestString=request.toString();
+		System.out.print(requestString);  //use logger component to log the request string
+		
+		String comp[]=requestString.split("\\r\\n");
+		String[] head=comp[0].split("\n");
+		header_firstLine=head[0];
+		
+		headers=new String[head.length-1];
+		for(int j=1;j<comp.length;j++){
+			headers[j-1]=head[j];
+		}
+		body=comp[1];
+		uri = parseUri(header_firstLine);
 	}
 
 	/* implementation of ServletRequest */
