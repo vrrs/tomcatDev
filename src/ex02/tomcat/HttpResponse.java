@@ -30,8 +30,7 @@ public class HttpResponse {
 		FileInputStream fis = null;
 		try {
 			/* request.getUri has been replaced by request.getRequestURI */
-			File file = new File(Constants.WEB_ROOT.toString(),
-					request.getUri());
+			File file = new File(Constants.WEB_ROOT,request.getUri());
 			fis = new FileInputStream(file);
 			/*
 			 * HTTP Response = Status-Line(( general-header | response-header |

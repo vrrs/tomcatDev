@@ -14,6 +14,7 @@ import javax.servlet.ServletInputStream;
 public class HttpRequest {
 	private InputStream input;
 	private String uri;
+	private final int BUFFER_SIZE=2048;
 
 	public HttpRequest(InputStream input) {
 		this.input = input;
@@ -36,9 +37,9 @@ public class HttpRequest {
 
 	public void parse() {
 		// Read a set of characters from the socket
-		StringBuffer request = new StringBuffer(2048);
+		StringBuffer request = new StringBuffer(BUFFER_SIZE);
 		int i;
-		byte[] buffer = new byte[2048];
+		byte[] buffer = new byte[BUFFER_SIZE];
 		try {
 			i = input.read(buffer);
 		} catch (IOException e) {

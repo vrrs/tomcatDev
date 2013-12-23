@@ -20,12 +20,10 @@ public class ServletProcessor {
 			// create a URLClassLoader
 			URL[] urls = new URL[1];
 			URLStreamHandler streamHandler = null;
-			File classPath = new File(Constants.WEB_ROOT.toString()); 
+			File classPath = new File(Constants.WEB_ROOT); 
 			// the forming of repository is taken from the create ClassLoader method in org.apache.catalina.startup.ClassLoaderFactory
 			String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString();
-			// the code for forming the URL is taken from
-			// the addRepository method in
-			// org.apache.catalina.loader.StandardClassLoader.
+			// the code for forming the URL is taken from the addRepository method in org.apache.catalina.loader.StandardClassLoader.
 			urls[0] = new URL(null, repository, streamHandler);
 			loader = new URLClassLoader(urls);
 		} catch (IOException e) {
