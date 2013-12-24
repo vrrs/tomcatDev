@@ -49,19 +49,19 @@ public class HttpServer {
 				// create Response object
 				HttpResponse response = new HttpResponse(output);
 				response.setRequest(request);
-				// check if this is a request for a servlet or
-				// a static resource
-				// a request for a servlet begins with "/servlet/"
+				
+				Thread runner;
 				if (request.getUri().startsWith("/servlet/")) {
-					ServletProcessor processor = new ServletProcessor();
-					processor.process(request, response);
+					ServletProcessor processor = new ServletProcessor(request, response);
+					runner=new Thread(processor);
+					runner.start();
 				}else {
 					if(!(shutdown = request.getUri().equals(SHUTDOWN_COMMAND))){
-						StaticResourceProcessor processor = new StaticResourceProcessor();
-						processor.process(request, response);
+						StaticResourceProcessor processor = new StaticResourceProcessor(request, response);
+						runner=new Thread(processor);
+						runner.start();
 					}
 				}
-				// Close the socket
 				socket.close();
 				// check if the previous URI is a shutdown command
 				shutdown = request.getUri().equals(SHUTDOWN_COMMAND);

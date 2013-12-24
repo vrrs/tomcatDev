@@ -10,7 +10,14 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class ServletProcessor {
+public class ServletProcessor implements Runnable{
+	private HttpRequest request;
+	private HttpResponse response;
+	
+	public ServletProcessor(HttpRequest request, HttpResponse response){
+		this.request=request;
+		this.response=response;
+	}
 
 	public void process(HttpRequest request, HttpResponse response) {
 		String uri = request.getUri();
@@ -47,5 +54,10 @@ public class ServletProcessor {
 		} catch (Throwable e) {
 			System.out.println(e.toString());
 		}
+	}
+
+	@Override
+	public void run() {
+		process(request,response);
 	}
 }
