@@ -32,11 +32,12 @@ public class HttpResponse {
 			/* request.getUri has been replaced by request.getRequestURI */
 			File file = new File(Constants.WEB_ROOT,request.getUri());
 			fis = new FileInputStream(file);
-			/*
-			 * HTTP Response = Status-Line(( general-header | response-header |
-			 * entity-header ) CRLF) CRLF [ message-body ] Status-Line =
-			 * HTTP-Version SP Status-Code SP Reason-Phrase CRLF
-			 */
+			
+			/* Http response format
+			 * <protocol>/<version> <response_code> <response_code_message>\n
+			<response_header1>: <value1>\n
+			<response_headern>: <valuen>\r\n
+			<body> */
 			int ch = fis.read(bytes, 0, BUFFER_SIZE);
 			while (ch != -1) {
 				output.write(bytes, 0, ch);

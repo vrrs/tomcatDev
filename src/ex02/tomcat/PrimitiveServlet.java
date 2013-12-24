@@ -35,8 +35,7 @@ public class PrimitiveServlet  implements Servlet {
 	}
 
 	@Override
-	public void service(ServletRequest arg0, ServletResponse arg1)
-			throws ServletException, IOException {
+	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 	}
