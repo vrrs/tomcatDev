@@ -39,7 +39,9 @@ public class ServletProcessor {
 		Servlet servlet = null;
 		try {
 			servlet = (Servlet) myClass.newInstance();
-			servlet.service((ServletRequest) request, (ServletResponse) response);
+			HttpRequestFacade requestFacade=new HttpRequestFacade(request);
+			HttpResponseFacade responseFacade=new HttpResponseFacade(response);
+			servlet.service((ServletRequest) requestFacade, (ServletResponse) responseFacade);
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		} catch (Throwable e) {
