@@ -9,8 +9,9 @@ import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletResponse;
 
-public class HttpResponse {
+public class HttpResponse implements ServletResponse{
 	private static final int BUFFER_SIZE = 1024;
 	HttpRequest request;
 	OutputStream output;
@@ -94,5 +95,29 @@ public class HttpResponse {
 	}
 
 	public void setLocale(Locale locale) {
+	}
+
+	@Override
+	public String getContentType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PrintWriter getWriter() throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setCharacterEncoding(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setContentLengthLong(long arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

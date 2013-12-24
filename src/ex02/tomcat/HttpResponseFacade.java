@@ -17,98 +17,98 @@ public class HttpResponseFacade implements ServletResponse{
 
 	@Override
 	public void flushBuffer() throws IOException {
-		// TODO Auto-generated method stub
 		
+		resp.flushBuffer();
 	}
 
 	@Override
 	public int getBufferSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return resp.getBufferSize();
 	}
 
 	@Override
 	public String getCharacterEncoding() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return resp.getCharacterEncoding();
 	}
 
 	@Override
 	public String getContentType() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return resp.getContentType();
 	}
 
 	@Override
 	public Locale getLocale() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return resp.getLocale();
 	}
 
 	@Override
 	public ServletOutputStream getOutputStream() throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return resp.getOutputStream();
 	}
 
 	@Override
 	public PrintWriter getWriter() throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return resp.getWriter();
 	}
 
 	@Override
 	public boolean isCommitted() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return resp.isCommitted();
 	}
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		
+		resp.reset();
 	}
 
 	@Override
 	public void resetBuffer() {
-		// TODO Auto-generated method stub
 		
+		resp.resetBuffer();
 	}
 
 	@Override
 	public void setBufferSize(int arg0) {
-		// TODO Auto-generated method stub
 		
+		resp.setBufferSize(arg0);
 	}
 
 	@Override
 	public void setCharacterEncoding(String arg0) {
-		// TODO Auto-generated method stub
 		
+		resp.setCharacterEncoding(arg0);
 	}
 
 	@Override
 	public void setContentLength(int arg0) {
-		// TODO Auto-generated method stub
 		
+		resp.setContentLength(arg0);
 	}
 
 	@Override
 	public void setContentLengthLong(long arg0) {
-		// TODO Auto-generated method stub
 		
+		resp.setContentLengthLong(arg0);
 	}
 
 	@Override
 	public void setContentType(String arg0) {
-		// TODO Auto-generated method stub
 		
+		resp.setContentType(arg0);
 	}
 
 	@Override
 	public void setLocale(Locale arg0) {
-		// TODO Auto-generated method stub
 		
+		resp.setLocale(arg0);
 	}
 
 }
