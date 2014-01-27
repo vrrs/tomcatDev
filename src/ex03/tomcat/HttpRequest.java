@@ -3,7 +3,10 @@ package ex03.tomcat;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -16,7 +19,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 public class HttpRequest implements ServletRequest{
-	
+	protected Map<String,String> headers = new HashMap<String,String>(); 
+	protected List<String> cookies = new ArrayList<String>(); 
+	//protected ParameterMap parameters = null;
 
 	public HttpRequest(SocketInputStream input) {
 		// TODO Auto-generated constructor stub
