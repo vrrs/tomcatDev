@@ -36,5 +36,15 @@ public class ServerLogger {
 	public synchronized static ServerLogger getLogger(String className){
 		return loggers.get(className);
 	}
+
+	public String getString(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static ServerLogger getManager(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
