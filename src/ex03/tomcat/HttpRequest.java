@@ -256,4 +256,34 @@ public class HttpRequest implements ServletRequest{
 		return null;
 	}
 
+	public void setQueryString(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRequestedSessionId(String substring) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRequestedSessionURL(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setProtocol(String protocol) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMethod(String method) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRequestURI(String normalizedUri) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
