@@ -57,8 +57,7 @@ public class HttpProcessor {
 		input.readRequestLine(requestLine);
 		String method = new String(requestLine.method, 0, requestLine.methodEnd);
 		String uri = null;
-		String protocol = new String(requestLine.protocol, 0,
-				requestLine.protocolEnd);
+		String protocol = new String(requestLine.protocol, 0,requestLine.protocolEnd);
 		// Validate the incoming request line
 		if (method.length() < 1) {
 			throw new ServletException("Missing HTTP request method");
