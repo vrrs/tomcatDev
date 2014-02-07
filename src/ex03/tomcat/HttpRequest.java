@@ -21,7 +21,7 @@ import javax.servlet.ServletResponse;
 public class HttpRequest implements ServletRequest{
 	protected Map<String,String> headers = new HashMap<String,String>(); 
 	protected List<String> cookies = new ArrayList<String>(); 
-	//protected ParameterMap parameters = null;
+	protected ParameterMap parameters = null;
 
 	public HttpRequest(SocketInputStream input) {
 		// TODO Auto-generated constructor stub
