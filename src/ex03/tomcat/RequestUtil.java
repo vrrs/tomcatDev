@@ -2,8 +2,13 @@ package ex03.tomcat;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author victorr
+ *  this class provide parsing functions for the request strings.
+ */
 public class RequestUtil {
+	
+	
 	public static Cookie[] parseCookieHeader(String header) {
 		if ((header == null) || (header.length() < 1))
 			return (new Cookie[0]);
