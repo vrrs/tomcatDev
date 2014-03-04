@@ -2,6 +2,8 @@ package ex03.tomcat;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.ws.rs.core.Cookie;
 /**
  * @author victorr
  *  this class provide parsing functions for the request strings.
@@ -11,7 +13,7 @@ public class RequestUtil {
 	
 	public static Cookie[] parseCookieHeader(String header) {
 		if ((header == null) || (header.length() < 1))
-			return (new Cookie[0]);
+			return new Cookie[0];
 		List<Cookie> cookies = new ArrayList<Cookie>();
 		while (header.length() > 0) {
 			int semicolon = header.indexOf(';');
@@ -31,10 +33,13 @@ public class RequestUtil {
 					String value = token.substring(equals + 1).trim();
 					cookies.add(new Cookie(name, value));
 				}
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 			}
 		}
-		return ((Cookie[]) cookies.toArray(new Cookie[cookies.size()]));
+		Cookie[] result=new Cookie[cookies.size()];
+		cookies.toArray(result);
+		return result;
 
 	}
 }
